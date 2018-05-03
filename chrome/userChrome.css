@@ -1,3 +1,4 @@
+/* show bookmarks only on new tab */
 #main-window #PersonalToolbar {
   visibility: collapse !important;
 }
@@ -9,8 +10,13 @@
   visibility: visible !important;
 }
 
-#content browser {
- margin-right: -14px !important;
- overflow-y: scroll;
- overflow-x: hidden;
+/* hide scrollbar in new tab*/
+#main-window[title^="about:newtab"] #content browser,
+#main-window[title^="New Tab"] #content browser,
+#main-window[title^="Nightly"] #content browser,
+#main-window[title^="Mozilla Firefox"] #content browser,
+#main-window[title^="Firefox"] #content browser{
+  margin-right: -15px !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
