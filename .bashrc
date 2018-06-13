@@ -5,7 +5,7 @@ source /usr/share/defaults/etc/profile
 alias su='su -l'
 alias sudo='sudo '
 alias cp='cp -v'
-alias mv='mv -v'
+alias mv='mv -vi'
 alias rm='rm -v'
 alias mkdir='mkdir -p -v'
 alias ..='cd ..'
