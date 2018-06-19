@@ -13,8 +13,8 @@ alias ...='cd ../..'
 
 alias sudoe='sudo -e'
 alias eopkg='eopkg -v'
-alias reboot='systemctl reboot'
-alias poweroff='systemctl poweroff'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
 
 alias ping='ping -c 5'
 alias mkdir='mkdir -p'
