@@ -40,9 +40,9 @@ bspc rule -a URxvt:ranger state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a qBittorrent state=floating
 bspc rule -a feh state=floating
+bspc rule -a Oblogout state=fullscreen
 bspc rule -a 'Messenger for Desktop' desktop='7' state=floating
 bspc rule -a Signal desktop='7' state=floating
 bspc rule -a discord desktop='7'
 bspc rule -a Spotify desktop='8'
 bspc rule -a Firefox -o desktop='2'
-
