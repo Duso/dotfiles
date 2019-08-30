@@ -444,7 +444,11 @@ index dae991c..4ea8c7e 100755
  # Dir: current working directory
  prompt_dir() {
 -    prompt_segment blue black '\w'
-+    prompt_segment cyan black '\w'
++	 if [[ -n $SSH_CLIENT ]]; then
++			prompt_segment green black '\w'
+	 else
+			prompt_segment cyan black '\w'
+	 fi
  }
  
  # Status:
