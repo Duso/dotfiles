@@ -63,6 +63,9 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
 
+XF86AudioMicMute
+	pactl set-source-mute 1 toggle
+
 # media TODO:
 XF86AudioPlay
 	mpc toggle

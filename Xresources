@@ -54,11 +54,13 @@ Xft.lcdfilter: lcddefault
 ! ! ! ! ! ! ! ! ! !
 ! urxvt settings: !
 ! ! ! ! ! ! ! ! ! !
+!URxvt*font:		xft:SourceCodePro:size=12
 URxvt*font:		xft:SauceCodePro Nerd Font:size=12
 URxvt*letterSpace:	-1
 URxvt*scrollBar:	false
 URxvt*internalBorder:	10
 URxvt*urgentOnBell:	true
+URxvt*title: >_
 
 ! extension: clickable urls
 URxvt.perl-ext-common: default,matcher
