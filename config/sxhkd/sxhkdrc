@@ -128,8 +128,12 @@ super + u
 	bspc node -f newest.urgent
 
 # swap current node and biggest local node
-super + g
+super + equal
 	bspc node -s biggest.local
+
+# hide node
+super + minus
+	bspc node -g hidden=on
 
 # send newest marked node to newest preselected node
 super + i

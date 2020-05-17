@@ -31,7 +31,8 @@ win + {p,o,<,>}			focus parent, brother, 1st child, 2nd child
 win + (shift) + {a,s,d,f}	(desktop) window state (tiled,floating,pseudo,fullscr*)
 win + {z,x,c,v}			set node flag (locked,marked,sticky,private)
 win + u				focus newest urgent node
-win + g				swap current node and biggest local node
+win + =				swap current node and biggest local node
+win + -				hide node
 win + i				send newest marked node to newest preselected node
 win + (shift) + w		(force) close node
 
