@@ -1,119 +1,109 @@
 # look up keysym names with xev 
 # @ - on KeyRelease
-# can make chains with ; !! both for keybinds and commands !!
+# can make chains with ;
 # multiline commands with \
 
-########################### 
-# wm independent keybinds #
-###########################
+# -----------------
+# |    General    |
+# -----------------
 
-# reload sxhkd configuration
-super + shift + F10
-	pkill -USR1 -x sxhkd
-
-# fix monitors
-super + shift + F9
-	monitor_refresh.sh
-
-# terminal/scratchpad
-super + {_, shift +} Return
-	{urxvt, scratchpad_toggle.sh}
-
-# file manager/floating file manager
-super + {_, shift +} semicolon
-	{urxvt -e ranger, urxvt -name ranger -e ranger} 
-
-# program launcher
+# program launcher TODO: what with shift?
 super + backslash 
 	rofi -show drun -display-run 'Run:' -display-drun 'Launch:'
 
-# kill window with mouse click
-super + F4
-	xkill
-	
-# lock
+# (scratchpad) terminal
+super + {_, shift +} Return
+	{urxvt, scratchpad_toggle.sh}
+
+# (floating) file manager
+super + {_, shift +} semicolon
+	{urxvt -e ranger, urxvt -name ranger -e ranger} 
+
+# (power menu) lock
 super + {_, shift} + slash
 	{lock, oblogout}
 
-# show desktop
-super + 9
-	bspc node $(bspc query -N -d focused | sed -n 1p) -g hidden
-
+# TODO: when scrot
 # take screenshot of focused window
 super + Print
 	scrot -u -e 'mv $f ~/Pictures/Screenshots/'
 
+# TODO: when scrot
 # take screenshot of selection
 super + shift + Print
 	sleep 0.2;\
 	scrot -s -e 'mv $f ~/Pictures/Screenshots/'
 
-#################
-# XF86 keybinds #
-#################
+# TODO: when scrot - add to .txt
+# # take sceenshot of entire screen
+
+# kill window with click
+super + F4
+	xkill
+	
+# show desktop
+super + shift + f
+	bspc node $(bspc query -N -d focused | sed -n 1p) -g hidden
+
+# reload monit config
+super + shift + F9
+	monitor_refresh.sh
+
+# reload sxhkd config
+super + shift + F10
+	pkill -USR1 -x sxhkd
+
+# reload bspwm config
+super + shift + F11
+	bspc wm -r
+
+# quit bspwm
+super + shift + F12
+	bspc quit
+
+# --------------
+# |    XF86    |
+# --------------
 
 # screen brightness
 XF86MonBrightness{Down,Up}
 	xbacklight -{dec,inc} 5 -steps 1
 
-# sound
+# sound TODO
 XF86Audio{Raise,Lower}Volume
 	sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+,-}2%"
-
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
-
 XF86AudioMicMute
 	pactl set-source-mute 1 toggle
 
 # media TODO:
 XF86AudioPlay
 	mpc toggle
-
 XF86Audio{Prev,Next}
 	mpc {prev,next}
 
-##################
-# bspwm keybinds #
-##################
+# ---------------
+# |    Bspwm    |
+# ---------------
 
-# quit bspwm normally
-super + shift + F12
-	bspc quit
+# focus/send to desktop
+super + {_, shift +} {1,2,3,4,5,6,7,8,9,0}
+	bspc {desktop -f, node -d} '{1-9,10}'
 
-# reload bspwmrc
-super + shift + F11
-	~/.config/bspwm/bspwmrc
+# focus the next/previous desktop
+super + bracket{left,right}
+	bspc desktop -f {prev,next}
 
-# close/kill node
-super + {_, shift + } w
-	bspc node -{c,k}
+# focus the last node/desktop
+super + {grave,Tab}
+	bspc {desktop, node} -f last
 
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
+# focus the next/previous node in current desktop
+alt + {_,shift + } Tab 
+	bspc node -f {next,prev}.local
 
-# alternate between bar/nobar in current desktop
-super + n
-	bspc config -d focused top_padding -$(($(bspc config top_padding) + $(bspc config -d focused top_padding)))
-
-# send the newest marked node to the newest preselected node
-super + i
-	bspc node newest.marked -n newest.!automatic --follow
-
-# swap the current node and the biggest local node
-super + g
-	bspc node -s biggest.local
-
-# set the window state
-super + {a,d,s,f}
-	bspc node -t {tiled,~pseudo_tiled,~floating,~fullscreen}
-
-# set the node flags
-super + {z,x,c,v}
-	bspc node -g {locked,marked,sticky,private}
-
-# focus/swap the node in the given direction
+# focus/move node in given direction
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
@@ -121,29 +111,37 @@ super + {_,shift + }{h,j,k,l}
 super + {p,o,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node in the current desktop
-alt + {_,shift + } Tab 
-	bspc node -f {next,prev}.local
+# set the window state
+super + {a,d,s,f}
+	bspc node -t {tiled,~pseudo_tiled,~floating,~fullscreen}
 
-# focus the next/previous desktop
-super + bracket{left,right}
-	bspc desktop -f {prev,next}
+# set windows state for all nodes in desktop
+super + shift + {a,s,d}
+	for i in `bspc query -N -d`; do bspc node $i -t {tiled,floating,pseudo_tiled}; done;
+
+# set the node flags
+super + {z,x,c,v}
+	bspc node -g {locked,marked,sticky,private}
 
 # focus newest urgent node
 super + u
 	bspc node -f newest.urgent
 
-# focus the last node/desktop
-super + {grave,Tab}
-	bspc {desktop, node} -f last
+# swap current node and biggest local node
+super + g
+	bspc node -s biggest.local
 
-# focus/send_to the given desktop
-super + {_, shift +} {1,2,3,4,5,6,7,8}
-	bspc {desktop -f, node -d} '{1-8}'
+# send newest marked node to newest preselected node
+super + i
+	bspc node newest.marked -n newest.!automatic --follow
+
+# (force) close node
+super + {_, shift + } w
+	bspc node -{c,k}
 
 # preselect the direction
 super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+	bspc node -p ~{west,south,north,east}
 
 # preselect the ratio
 super + ctrl + {1-9}
@@ -165,13 +163,17 @@ super + alt + shift + {h,j,k,l}
 super + shift + {u,i,o,p}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# increment/decrement window gap
-super + {minus,equal}
-	bspc config window_gap $(($(bspc config window_gap) {-,+} 5))
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
 
-# reset window gap
-super + 0
-	bspc config window_gap 10
+# alternate between bar/nobar in current desktop
+super + n
+	bspc config -d focused top_padding -$(($(bspc config top_padding) + $(bspc config -d focused top_padding)))
+
+# increment/decrement window gap
+super + shift + {minus,equal}
+	bspc config window_gap $(($(bspc config window_gap) {-,+} 5))
 
 # rotate tree clockwise/anticlockwise
 super + {_, shift +} e

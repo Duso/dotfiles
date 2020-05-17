@@ -1,58 +1,63 @@
---- general keybinds ---
-win + shift + F10			reload sxhkd config
-win + shift + F9			fix screens
+Keybinds are in .config/sxhkd/sxhkdrc
+
+--- General ---
+win + (shift) + \		(!!) program launcher
 win + (shift) + Return		(scratchpad) terminal
-win + (shift) + ;			(floating) file_manager
-win + \						program launcher
-win + F4					kill window with click
-win + (shift) +/ 			(oblogout) lock
-win + 9						show desktop
-win + space					change keyboard layout (this is defined in xorg.conf.d/0-moinitor...
-win + (shift) + ptrscr		take screenshot of focused_window/selection
-------------------------
+win + (shift) + ;		(floating) file manager
+win + (shift) + / 		(power_menu) lock
+!! win + (shift) + ptrscr		take screenshot of (focused_win) selection
+win + space			change keyboard layout (in xorg.conf.d/0-moinitor...)
+win + f4			kill window with click
+win + shift + f			show desktop
+win + shift + F9		reload monit config
+win + shift + F10		reload sxhkd config
+win + shift + F11		reload bspwm config  
+win + shift + F12		quit bspwm
 
---- XF86 keybinds ---
+--- XF86 ---
 brightness {incr,decr}
-sound {incr,decr,mute_toggle}
+!! sound {incr,decr,mute_toggle}
 !! media {pause,next,prev}
----------------------
 
---- bspwm keybinds ---
-win + shift + F12			quit bspwm
-win + shift + F11			reload bspwmrc config  
-win + w						close node
-win + shift + w				kill node
-win + m						tiled <-> monocle layout
-win + n						draw windows over/under bar
-win + i						send newest marked node to newest preselected node
-win + g						swap current node and biggest local node
-win + {a,s,d,f}				set(toggle) window state (T,FL,PT,FS)
-win + {z,x,c,v}				set(toggle) node flag (L,M,S,P)
-win + {h,j,k,l}				focus node in given (spatial) direction
-win + shift + {h,j,k,l}		swap("move") node in given (spatial) direction
-win + {p,o,<,>}				focus parent, brother, 1st child, 2nd child
-alt + (shift) + Tab			focus next,prev node in current desktop
-win + {[,]}					focus next,prev desktop
-win + {Tab,~}				focus last node,desktop
-win + u						focus newest urgent node
-win + (1-8) 				focus desktop
-win + shift + (1-8)			send node to desktop
+--- Bspwm ---
+win + (1-0) 			focus desktop
+win + shift + (1-0)		send node to desktop
+win + {[,]}			focus next,prev desktop
+win + {Tab,~}			focus last node,desktop
+alt + (shift) + Tab		focus next,prev node in current desktop
+
+win + (shift) + {h,j,k,l}	(move) focus node in given direction
+win + {p,o,<,>}			focus parent, brother, 1st child, 2nd child
+win + (shift) + {a,s,d,f}	(desktop) window state (tiled,floating,pseudo,fullscr*)
+win + {z,x,c,v}			set node flag (locked,marked,sticky,private)
+win + u				focus newest urgent node
+win + g				swap current node and biggest local node
+win + i				send newest marked node to newest preselected node
+win + (shift) + w		(force) close node
+
 win + ctrl + {h,j,k,l} 		preselect in given (spatial) direction
-win + ctrl + (1-9) 			preselect ratio
-win + ctrl + space			cancel preselect in desktop
+win + ctrl + (1-9) 		preselect ratio
+win + ctrl + space		cancel preselect in desktop
+
 win + alt + {h,j,k,l}		expand window in direction
 win + alt + shift + {hjkl}	contract window in direction
 win + shift + {u,i,o,p}		move floating window
-win + {=,-,0}				incr,decr,reset window gaps
-win + e						rotate tree clockwise
-win + shift + e				rotate tree anticlockwise
-win + q						flip tree vertical
-win + shift + q				flip tree horizontal
-win + r						resize nodes at tree to have default preselect area
-win + shift + r				resize nodes at tree to have equal area
+
+win + m				tiled <-> monocle layout
+win + n				windows over bar
+win + shift + {=,-}		increment,decrement window gaps
+
+win + e				rotate tree clockwise
+win + shift + e			rotate tree anticlockwise
+win + q				flip tree vertical
+win + shift + q			flip tree horizontal
+win + r				resize nodes at tree to have default preselect area
+win + shift + r			resize nodes at tree to have equal area
 ----------------------
 
 --- Free Keybinds ---
 t,y,b
 '
+- +
 ---------------------
+
