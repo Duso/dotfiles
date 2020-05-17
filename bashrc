@@ -15,9 +15,12 @@ alias mkdir='mkdir -pv'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias ping='ping -c 5'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
+alias ll='ls -alh --color=auto'
+alias lh='ls -lh --color=auto'
+
+alias nv='nvim'
 
 # shell prompt
 PS1='[\u@\h \W]\$ '
