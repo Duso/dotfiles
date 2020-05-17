@@ -21,6 +21,7 @@ alias ll='ls -alh --color=auto'
 alias lh='ls -lh --color=auto'
 
 alias nv='nvim'
+alias diff='nvim -d'
 
 # shell prompt
 PS1='[\u@\h \W]\$ '
