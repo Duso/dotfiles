@@ -1,7 +1,6 @@
-# # # # # #
-# GENERAL #
-# # # # # #
-
+# -----------------
+# |    General    |
+# -----------------
 [colors]
 nord0 = #2E3440
 nord1 = #3B4252
@@ -21,125 +20,97 @@ nord14 = #A3BE8C
 nord15 = #B48EAD
 
 [settings]
-screenchange-reload = true
+# TODO compositing? after picom
 
 [global/wm]
 margin-top = 0
 margin-bottom = 0
 
-# # # # #
-# BARS  #
-# # # # #
-[bar/laptop]
-monitor = eDP1
+# ----------------------
+# |    Bar Template    |
+# ----------------------
+[bar/default]
 override-redirect = true
-fixed-center = true
-width = 1900
-height = 20
+wm-restack = bspwm
 offset-x = 10
 offset-y = 10
+width = 1900
+height = 20
+border-size = 2
 background = ${colors.nord3}
 foreground = ${colors.nord5}
-
-line-size = 2
-line-color = ${colors.nord11}
-
-border-size = 2
 border-color = ${colors.nord10}
+cursor-click = pointer
+cursor-scroll = ns-resize
+font-0 = SauceCodeProNerdFont:Bold:size=13;3
+font-1 = SourceCodePro:Semibold:size=13;3
 
-padding-left = 0
-padding-right = 0
-module-margin-left = 0
-module-margin-right = 0
-
-font-0 = SourceCodeProSemibold:size=11;3
-font-1 = SauceCodePro\ Nerd\ Font::size=12;3
-
+# TODO order
 modules-left = bspwm RightArrow1 xwindow RightArrow2
 modules-center = date
-modules-right = volume xkeyboard battery
+modules-right = bat0 bat1 LeftArrow
 
-wm-restack = bspwm
-
-; tray stuff
-tray-position = right
-tray-detached = false
+# TODO tray
 tray-background = ${colors.nord1}
-tray-offset-x = 0
-tray-offset-y = 0
 tray-padding = 5
 tray-scale = 1.0
 
-scroll-up =
-scroll-down =
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/laptop-alt]
-monitor = eDP-1
-inherit = bar/laptop
-tray-position = none
-
-[bar/work1]
-monitor = DP-2-1
-inherit = bar/laptop
-tray-position = none
-
-[bar/work2]
-monitor = DP-2-2
-inherit = bar/laptop
+# --------------
+# |    Bars    |
+# --------------
+[bar/laptop]
+monitor = eDP1
+inherit = bar/default
 tray-position = right
-width = 1060
 
 [bar/home]
-monitor = HDMI1
-inherit = bar/laptop
+monitor = HDMI2
+inherit = bar/default
 tray-position = none
 
-# # # # # #
-# MODULES #
-# # # # # #
+# ----------------------
+# |    Bspwm Module    |
+# ----------------------
 [module/bspwm]
 type = internal/bspwm
-
 pin-workspaces = true
-;inline-mode = false
-
 enable-click = true
 enable-scroll = true
+reverse-scroll = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;者
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;阮
-ws-icon-8 = 9;
+label-focused-occupied = 
+label-focused-occupied-foreground = ${colors.nord6}
+label-focused-occupied-background = ${colors.nord8}
+label-focused-occupied-padding = 1
 
-format = <label-state>
+label-focused-urgent = 
+label-focused-urgent-foreground = ${colors.nord13}
+label-focused-urgent-background = ${colors.nord8}
+label-focused-urgent-padding = 1
 
-label-focused = %icon%
-label-focused-foreground = ${colors.nord13}
-label-focused-background = ${colors.nord8}
-label-focused-padding = 1
+label-focused-empty = 
+label-focused-empty-foreground = ${colors.nord6}
+label-focused-empty-background = ${colors.nord8}
+label-focused-empty-padding = 1
 
-label-occupied = %icon%
-label-occupied-foreground = ${colors.nord4}
+label-occupied = 
+label-occupied-foreground = ${colors.nord1}
 label-occupied-background = ${colors.nord8}
 label-occupied-padding = 1
 
-label-urgent = %icon%
+label-urgent = 
 label-urgent-foreground = ${colors.nord11}
 label-urgent-background = ${colors.nord8}
 label-urgent-padding = 1
 
-label-empty = %icon%
-label-empty-foreground = ${colors.nord3}
+label-empty = 
+label-empty-foreground = ${colors.nord1}
 label-empty-background = ${colors.nord8}
 label-empty-padding = 1
 
+# ------------------------
+# |    Helper Modules    |
+# ------------------------
 [module/RightArrow1]
 type = custom/text
 content = " "
@@ -152,28 +123,26 @@ content = ""
 content-foreground = ${colors.nord1}
 content-background = ${colors.nord3}
 
+[module/LeftArrow]
+type = custom/text
+content = ""
+content-foreground = ${colors.nord1}
+content-background = ${colors.nord3}
+
+# -----------------------
+# |    Window Module    |
+# -----------------------
 [module/xwindow]
 type = internal/xwindow
 format-foreground = ${colors.nord5}
 format-background = ${colors.nord1}
-format-padding = 0
-label =类 %title%
-label-maxlen = 25
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+label =类 %title% 
+label-maxlen = 50
 
-format-prefix = "   "
-;format-padding = 1
-format-prefix-foreground = #ffffff
-
-label-layout = %layout% 
-
-;label-indicator-padding = 20
-;label-indicator-margin = 1
-label-indicator-background = ${colors.nord8}
-
+# ---------------------
+# |    Date Module    |
+# ---------------------
 [module/date]
 type = internal/date
 interval = 1
@@ -184,26 +153,23 @@ date-alt = "%d.%m.%Y"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
-format-padding = 0
-format-prefix-foreground = ${colors.nord4}
-
 label =羽 %time%  %date% 
 
+# ----------------------
+# |    Audio Module    |
+# ----------------------
+# TODO format & spacing
 [module/volume]
 type = internal/pulseaudio
 sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
+label-muted = " --"
+label-muted-foreground = ${colors.nord5}
+label-muted-background = ${colors.nord3}
+
 format-volume = <ramp-volume><label-volume>
 format-volume-foreground = ${colors.nord5}
 format-volume-background = ${colors.nord3}
-
-label-volume = "%percentage%"
-label-volume-foreground = ${colors.nord5}
-label-volume-background = ${colors.nord3}
-label-muted = " -- "
-label-muted-foreground = ${colors.nord5}
-label-muted-background = ${colors.nord3}
 
 ramp-volume-0 = " "
 ramp-volume-0-foreground = ${colors.nord5}
@@ -218,92 +184,57 @@ ramp-volume-3 = " "
 ramp-volume-3-foreground = ${colors.nord5}
 ramp-volume-3-background = ${colors.nord3}
 
+label-volume = "%percentage%"
+label-volume-foreground = ${colors.nord5}
+label-volume-background = ${colors.nord3}
 
+# -------------------------
+# |    Keyboard Module    |
+# -------------------------
+# TODO format & spacing
+[module/xkeyboard]
+type = internal/xkeyboard
+format-prefix = "  "
+label-layout = %layout% 
+
+# -------------------------
+# |    Battery Modules    |
+# -------------------------
+# TODO: format & spacing
 [module/battery]
 type = internal/battery
-
-battery = BAT0
-adapter = ADP1
-
 full-at = 99
 
-format-padding = 1
-
-format-charging = <label-charging>
-format-charging-padding = 1
-format-charging-foreground = ${colors.nord5}
-format-charging-background = ${colors.nord3}
-
 format-full = <label-full>
-format-full-padding = 1
 format-full-foreground = ${colors.nord5}
 format-full-background = ${colors.nord3}
+label-full = " %percentage% "
+
+format-charging = <label-charging>
+format-charging-foreground = ${colors.nord5}
+format-charging-background = ${colors.nord3}
+label-charging = " %percentage% "
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-padding = 1
 format-discharging-foreground = ${colors.nord5}
 format-discharging-background = ${colors.nord3}
-
-label-charging =  %percentage%
-label-discharging =%percentage%
+label-discharging ="%percentage% "
 label-discharging-foreground = ${colors.nord5}
-label-full =  %percentage%
 
-ramp-capacity-0 = " "
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 ramp-capacity-0-foreground = ${colors.nord11}
-ramp-capacity-1 = " "
 ramp-capacity-1-foreground = ${colors.nord11}
-ramp-capacity-2 = " "
-ramp-capacity-3 = " "
-ramp-capacity-4 = " "
 
-[module/powermenu]
-type = custom/menu
+[module/bat0]
+inherit = module/battery
+battery = BAT0
+adapter = AC
 
-expand-right = false
-
-format-spacing = 1
-
-label-open = "| "
-label-open-foreground = ${colors.nord4}
-label-close =  
-label-close-foreground = ${colors.nord13}
-label-separator = |
-label-separator-foreground = ${colors.nord4}
-
-menu-0-0 = "|  "
-menu-0-0-exec = lock.sh
-menu-0-1 = 
-menu-0-1-exec = systemctl suspend
-menu-0-2 = 
-menu-0-2-exec = systemctl hibernate
-menu-0-3 = 
-menu-0-3-exec = systemctl reboot
-menu-0-4 = 
-menu-0-4-exec = systemctl poweroff
-
-[module/music]
-;TODO - show time as in now/total
-type = custom/script
-exec = echo `mpc current`
-label = %output%
-interval = 1
-
-[module/prev]
-type = custom/text
-content = " "
-click-left = mpc prev
-
-[module/toggle]
-type = custom/text
-content = " "
-click-left = mpc toggle
-
-[module/next]
-type = custom/text
-content = " "
-click-left = mpc next
-
-[module/tray-text]
-type = custom/text
-content = " "
+[module/bat1]
+inherit = module/battery
+battery = BAT1
+adapter = AC

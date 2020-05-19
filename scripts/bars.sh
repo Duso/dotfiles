@@ -22,5 +22,5 @@ then
 	polybar -r work2 &
 	polybar -r work1 &
 fi
-
 echo "Bars launched!"
+

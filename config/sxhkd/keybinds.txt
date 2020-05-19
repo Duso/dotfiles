@@ -18,6 +18,7 @@ win + shift + F12		quit bspwm
 brightness {incr,decr}
 !! sound {incr,decr,mute_toggle}
 !! media {pause,next,prev}
+!! blouetooth
 
 --- Bspwm ---
 win + (1-0) 			focus desktop

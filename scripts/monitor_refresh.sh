@@ -13,7 +13,7 @@ if xrandr | grep "HDMI2 disconnected"; then
 	bspc monitor eDP1 -o 1 2 3 4 5 6 7 8 9 10
 	bspc desktop -f last
 	bspc monitor HDMI2 -r
-	#$HOME/.scripts/bars.sh laptop &
+	bars.sh laptop &
 else
 	for i in 1 2 3 4 5
 	do
@@ -27,7 +27,7 @@ else
 	bspc monitor eDP1 -o 6 7 8 9 10
 	bspc desktop 11 -r
 	bspc desktop Desktop -r
-	#$HOME/.scripts/bars.sh home &
+	bars.sh home &
 fi
 
 # set wallpaper
