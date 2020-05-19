@@ -9,6 +9,7 @@ export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
 export TERMINAL="urxvt"
 export BROWSER="brave"
+export LESSHISTFILE="-"
 
 # export QT_QPA_PLATFORMTHEME=gtk2
 #export GOPATH=$HOME/workspace/go
