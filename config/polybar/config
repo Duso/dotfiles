@@ -47,7 +47,7 @@ font-1 = SourceCodePro:Semibold:size=12;3
 
 modules-left = bspwm rightArrow1 xwindow rightArrow2
 modules-center = date
-modules-right = xkeyboard bat0 bat1 LeftArrow
+modules-right = xkeyboard bat0 bat1 leftArrow
 
 tray-background = ${colors.nord1}
 tray-padding = 5
