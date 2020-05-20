@@ -33,6 +33,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # autostart
+lxpolkit &
 xfce4-power-manager &
 xss-lock -- lock.sh &
 udiskie -qF &
