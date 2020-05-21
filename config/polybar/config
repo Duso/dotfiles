@@ -45,9 +45,9 @@ cursor-scroll = ns-resize
 font-0 = SauceCodeProNerdFont:Bold:size=12;3
 font-1 = SourceCodePro:Semibold:size=12;3
 
-modules-left = bspwm rightArrow1 xwindow rightArrow2
+modules-left = bspwm r1 xwindow r2
 modules-center = date
-modules-right = xkeyboard bat0 bat1 leftArrow
+modules-right = l1 volume l1 xkeyboard l1 bat0 bat1 l2
 
 tray-background = ${colors.nord1}
 tray-padding = 5
@@ -109,19 +109,25 @@ label-empty-padding = 1
 # ------------------------
 # |    Helper Modules    |
 # ------------------------
-[module/rightArrow1]
+[module/r1]
 type = custom/text
 content = " "
 content-foreground = ${colors.nord8}
 content-background = ${colors.nord1}
 
-[module/rightArrow2]
+[module/r2]
 type = custom/text
 content = ""
 content-foreground = ${colors.nord1}
 content-background = ${colors.nord3}
 
-[module/leftArrow]
+[module/l1]
+type = custom/text
+content = " "
+content-foreground = ${colors.nord6}
+content-background = ${colors.nord3}
+
+[module/l2]
 type = custom/text
 content = ""
 content-foreground = ${colors.nord1}
@@ -191,7 +197,7 @@ label-volume-background = ${colors.nord3}
 [module/xkeyboard]
 type = internal/xkeyboard
 format-prefix = " "
-label-layout = "%layout% "
+label-layout = %layout%
 
 # -------------------------
 # |    Battery Modules    |
@@ -216,11 +222,11 @@ format-discharging-background = ${colors.nord3}
 label-discharging ="%percentage% "
 label-discharging-foreground = ${colors.nord5}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
 ramp-capacity-0-foreground = ${colors.nord11}
 ramp-capacity-1-foreground = ${colors.nord11}
 
