@@ -69,11 +69,11 @@ super + shift + F12
 XF86MonBrightness{Down,Up}
 	xbacklight -{dec,inc} 5 -steps 1
 
-# sound TODO
 XF86Audio{Raise,Lower}Volume
 	sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+,-}2%"
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+#	pactl set-sink-mute 0 toggle
+	amixer set Master toggle
 XF86AudioMicMute
 	pactl set-source-mute 1 toggle
 
