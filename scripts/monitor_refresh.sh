@@ -31,4 +31,4 @@ else
 fi
 
 # set wallpaper
-#$HOME/.fehbg &
+feh --bg-scale --no-fehbg pictures/wallpapers/valley-frost.png
