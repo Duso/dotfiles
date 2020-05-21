@@ -61,6 +61,8 @@ URxvt*scrollBar:	false
 URxvt*internalBorder:	10
 URxvt*urgentOnBell:	true
 !URxvt.title: >_
+URxvt.iso14755: false
+URxvt.iso14755_52: false
  
 ! extension: clickable urls
 URxvt.perl-ext-common: default,matcher,resize-font
