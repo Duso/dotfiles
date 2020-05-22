@@ -1,4 +1,0 @@
-#!/bin/bash
-
-# playerctl --player=spotify pause
-i3lock -c 2e3440
