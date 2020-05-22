@@ -198,6 +198,7 @@ label-volume-background = ${colors.nord3}
 type = internal/xkeyboard
 format-prefix = " "
 label-layout = %layout%
+label-indicator-background = ${colors.nord9}
 
 # -------------------------
 # |    Battery Modules    |
