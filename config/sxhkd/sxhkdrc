@@ -7,9 +7,9 @@
 # |    General    |
 # -----------------
 
-# program launcher TODO: what with shift?
-super + backslash 
-	rofi -show drun -display-run 'Run:' -display-drun 'Launch:'
+# program launcher / browser
+super + {_, shift +} backslash
+	{rofi -show drun -display-run 'Run:' -display-drun 'Launch:', brave}
 
 # (scratchpad) terminal
 super + {_, shift +} Return

@@ -1,7 +1,7 @@
 Keybinds are in .config/sxhkd/sxhkdrc
 
 --- General ---
-win + (shift) + \		(!!) program launcher
+win + (shift) + \		(browser) program launcher
 win + (shift) + Return		(scratchpad) terminal
 win + (shift) + ;		(floating) file manager
 win + (shift) + / 		(power_menu) lock
