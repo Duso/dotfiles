@@ -13,7 +13,7 @@ super + {_, shift +} backslash
 
 # (scratchpad) terminal
 super + {_, shift +} Return
-	{urxvt, scratchpad_toggle.sh}
+	{urxvt, scratchpad-toggle.sh}
 
 # (floating) file manager
 super + {_, shift +} semicolon
@@ -47,7 +47,7 @@ super + shift + f
 
 # reload monit config
 super + shift + F9
-	monitor_refresh.sh
+	monitors.sh
 
 # reload sxhkd config
 super + shift + F10
