@@ -32,6 +32,8 @@ for i in `seq 1 $(bspc rule -l | wc -l)`; do bspc rule -r tail; done
 bspc rule -a URxvt:scratchpad state=floating sticky=true locked=true
 bspc rule -a URxvt:ranger state=floating
 bspc rule -a Nm-connection-editor state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a Blueman-manager state=floating
 bspc rule -a feh state=floating
 bspc rule -a Oblogout state=fullscreen sticky=true
 bspc rule -a Signal desktop='7' state=floating
