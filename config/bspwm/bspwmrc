@@ -33,7 +33,7 @@ bspc rule -a URxvt:scratchpad state=floating sticky=true locked=true
 bspc rule -a URxvt:ranger state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a feh state=floating
-bspc rule -a Oblogout state=fullscreen
+bspc rule -a Oblogout state=fullscreen sticky=true
 bspc rule -a Signal desktop='7' state=floating
 bspc rule -a discord desktop='7'
 bspc rule -a Brave-browser -o desktop='2'
