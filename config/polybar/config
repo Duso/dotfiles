@@ -47,7 +47,7 @@ font-1 = SourceCodePro:Semibold:size=12;3
 
 modules-left = bspwm r1 xwindow r2
 modules-center = date
-modules-right = l1 volume l1 xkeyboard l1 bat0 bat1 l2
+modules-right = l1 volume l1 keyboard l1 bat0 bat1 l2
 
 tray-background = ${colors.nord1}
 tray-padding = 5
@@ -194,9 +194,9 @@ label-volume-background = ${colors.nord3}
 # -------------------------
 # |    Keyboard Module    |
 # -------------------------
-[module/xkeyboard]
+[module/keyboard]
 type = internal/xkeyboard
-format-prefix = " "
+format-prefix = "  "
 label-layout = %layout%
 label-indicator-background = ${colors.nord9}
 
