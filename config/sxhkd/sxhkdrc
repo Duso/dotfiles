@@ -9,7 +9,7 @@
 
 # program launcher / browser
 super + {_, shift +} backslash
-	{rofi -show drun -display-run 'Run:' -display-drun 'Launch:', brave}
+	{rofi -show drun -display-run 'Run:' -display-drun 'Launch:', firefox}
 
 # (scratchpad) terminal
 super + {_, shift +} Return
@@ -21,7 +21,7 @@ super + {_, shift +} semicolon
 
 # (power menu) lock
 super + {_, shift} + slash
-	{lock, oblogout}
+	{lock.sh, oblogout}
 
 # TODO: when scrot
 # take screenshot of focused window
