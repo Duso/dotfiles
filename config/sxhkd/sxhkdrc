@@ -67,7 +67,7 @@ super + shift + F12
 
 # screen brightness
 XF86MonBrightness{Down,Up}
-	xbacklight -{dec,inc} 5 -steps 1
+	xbacklight -{dec,inc} 5 -steps 1 && notify-send " Light" "Brightness: $(xbacklight | cut -c1-2)"
 
 XF86Audio{Raise,Lower}Volume
 	sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+,-}2%"
