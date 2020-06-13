@@ -3,12 +3,15 @@
 #
 
 export PATH=$PATH:$HOME/.scripts
-export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export SUDO_EDITOR="nvim"
+export PAGER="less"
 export TERMINAL="urxvt"
 export BROWSER="brave"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="-"
 
 # export QT_QPA_PLATFORMTHEME=gtk2
