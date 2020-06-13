@@ -31,4 +31,4 @@ else
 fi
 
 # set wallpaper
-feh --bg-scale --no-fehbg pictures/wallpapers/valley-frost.png
+feh --bg-scale --no-fehbg Pictures/wallpapers/valley-frost.png
