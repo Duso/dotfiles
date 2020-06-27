@@ -2,12 +2,12 @@ Keybinds are in .config/sxhkd/sxhkdrc
 
 --- General ---
 win + (shift) + \		(browser) program launcher
-win + (shift) + Return		(scratchpad) terminal
+win + (shift) + Return	(scratchpad) terminal
 win + (shift) + ;		(floating) file manager
 win + (shift) + / 		(power_menu) lock
-!! win + (shift) + ptrscr		take screenshot of (focused_win) selection
-win + space			change keyboard layout (in xorg.conf.d/0-moinitor...)
-win + f4			kill window with click
+win + (shift) + ptrscr	screenshot of (everything) selection
+win + space				change keyboard layout (in xorg.conf.d/0-moinitor...)
+win + f4				kill window with click
 win + shift + f			show desktop
 win + shift + F9		reload monit config
 win + shift + F10		reload sxhkd config

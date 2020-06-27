@@ -23,19 +23,13 @@ super + {_, shift +} semicolon
 super + {_, shift} + slash
 	{lock.sh, oblogout}
 
-# TODO: when scrot
-# take screenshot of focused window
-super + Print
-	scrot -u -e 'mv $f ~/Pictures/Screenshots/'
-
-# TODO: when scrot
 # take screenshot of selection
-super + shift + Print
-	sleep 0.2;\
-	scrot -s -e 'mv $f ~/Pictures/Screenshots/'
+super + Print
+	maim -s -b 2 -c 255,0,0 | tee ~/Pictures/screenshots/$(date +screenshot-%s).png | xclip -selection clipboard -t image/pn
 
-# TODO: when scrot - add to .txt
-# # take sceenshot of entire screen
+# take sceenshot of entire screen
+super + shift + Print
+	maim | tee ~/Pictures/screenshots/$(date +screenshot-%s).png | xclip -selection clipboard -t image/pn
 
 # kill window with click
 super + F4

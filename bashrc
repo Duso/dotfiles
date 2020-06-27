@@ -22,6 +22,7 @@ alias lh='ls -lh --color=auto'
 
 alias nv='nvim'
 alias diff='nvim -d'
+alias feh='feh --draw-filename --auto-rotate --scale-down --image-bg "#2E3440"'
 
 # color man pages
 export LESS=-R
