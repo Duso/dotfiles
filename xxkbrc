@@ -1,8 +1,9 @@
+! this should be un app-defaults/ ?
 XXkb.controls.add_when_start:	yes
 XXkb.controls.add_when_create:	yes
 XXkb.controls.add_when_change:	yes
 XXkb.controls.focusout:		yes
-XXkb.controls.two_state:	yes
+XXkb.controls.two_state:	no
 XXkb.controls.button_delete:	yes
 XXkb.controls.button_delete_and_forget:	no
 XXkb.controls.mainwindow_delete:	no

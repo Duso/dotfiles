@@ -66,6 +66,6 @@ URxvt.iso14755_52: false
  
 ! extension: clickable urls
 URxvt.perl-ext-common: default,matcher,resize-font
-URxvt.url-launcher: /usr/bin/brave
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 URxvt.matcher.rend.0: Uline fg7
