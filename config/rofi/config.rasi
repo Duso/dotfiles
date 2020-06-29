@@ -4,7 +4,7 @@ configuration {
 	lines:				8;
 	show-match:			false;
 	hide-scrollbar:		true;
-	icon-theme:			"Papirus";
+	icon-theme:			"Papirus-Dark";
 	show-icons:			true;
 	font:				"SourceCodeProSemibold 13";
 	theme:				"~/.config/rofi/nord.rasi";

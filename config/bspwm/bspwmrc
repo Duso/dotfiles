@@ -34,5 +34,6 @@ bspc rule -a URxvt:ranger state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Blueman-manager state=floating
+bspc rule -a Lxappearance state=floating
 bspc rule -a Oblogout state=fullscreen sticky=true
 bspc rule -a Firefox -o desktop='2'
