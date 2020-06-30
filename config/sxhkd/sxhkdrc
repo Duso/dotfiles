@@ -9,7 +9,7 @@
 
 # program launcher / browser
 super + {_, shift +} backslash
-	{rofi -show drun -display-run 'Run:' -display-drun 'Launch:', firefox}
+	{rofi -show drun -display-run ' ' -display-drun ' ', firefox}
 
 # (scratchpad) terminal
 super + {_, shift +} Return
