@@ -5,6 +5,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# options
+shopt -s autocd
+
+# sources
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+# aliases
 alias su='su -l'
 alias sudo='sudo '
 alias sudoe='sudo -e'

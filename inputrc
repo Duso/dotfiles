@@ -2,6 +2,13 @@ $include /etc/inputrc
 
 set editing-mode vi
 set show-mode-in-prompt on
+$if term=linux
+	set vi-ins-mode-string \1\e[70c\2
+	set vi-cmd-mode-string \1\e[78c\2
+$else
+	set vi-ins-mode-string \1\e[6 q\2
+	set vi-cmd-mode-string \1\e[2 q\2
+$endif
 
 $if mode=vi
 set keymap vi-command
@@ -14,14 +21,8 @@ set keymap vi-insert
 # these are for vi-insert mode
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-$endif
-
-$if term=linux
-	set vi-ins-mode-string \1\e[70c\2
-	set vi-cmd-mode-string \1\e[78c\2
-$else
-	set vi-ins-mode-string \1\e[6 q\2
-	set vi-cmd-mode-string \1\e[2 q\2
+"\C-l": clear-screen
 $endif
 
 set colored-completion-prefix on
+set show-all-if-ambiguous on
