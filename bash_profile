@@ -21,7 +21,6 @@ export HISTCONTROL=ignoredups:ignorespace
 #export PATH=$PATH:/$home/.node_modules/bin
 #export npm_config_prefix=~/.node_modules
 
-#eval `dircolors ~/.dir_colors`
 #
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 

@@ -15,7 +15,7 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 alias su='su -l'
 alias sudo='sudo '
 alias sudoe='sudo -e'
-alias cp='cp -vi'
+alias cp='cp -v'
 alias mv='mv -vi'
 alias rm='rm -vI'
 alias mkdir='mkdir -pv'
@@ -24,6 +24,7 @@ alias ...='cd ../..'
 alias :q=' exit'
 alias :Q=' exit'
 
+alias ip='ip -color=auto'
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias ll='ls -alh --color=auto'
@@ -47,5 +48,11 @@ export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
 export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
+# dircolors
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+
 # shell prompt
-PS1='[\u@\h \W]\$ '
+if [[ ! -f $THEME ]]; then
+	PS1='[\u@\h \W]\$ '
+fi
+
