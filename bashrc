@@ -15,20 +15,26 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 alias su='su -l'
 alias sudo='sudo '
 alias sudoe='sudo -e'
-alias cp='cp -v'
+alias cp='cp -vi'
 alias mv='mv -vi'
-alias rm='rm -v'
+alias rm='rm -vI'
 alias mkdir='mkdir -pv'
 alias ..='cd ..'
 alias ...='cd ../..'
+alias :q=' exit'
+alias :Q=' exit'
 
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias ll='ls -alh --color=auto'
 alias lh='ls -lh --color=auto'
+alias df='df -h'
+alias du='du -ch'
+alias dmesg='dmesg -H'
 
 alias nv='nvim'
 alias diff='nvim -d'
+alias more='less'
 alias feh='feh --draw-filename --auto-rotate --scale-down --image-bg "#2E3440"'
 
 # color man pages
