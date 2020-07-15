@@ -49,7 +49,7 @@ export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # dircolors
-test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # shell prompt
 if [[ ! -f $THEME ]]; then
