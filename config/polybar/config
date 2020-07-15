@@ -20,7 +20,7 @@ nord14 = #A3BE8C
 nord15 = #B48EAD
 
 [settings]
-# TODO compositing? after picom
+# defaults are ok?
 
 [global/wm]
 margin-top = 0
