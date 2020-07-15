@@ -1,19 +1,16 @@
-# look up keysym names with xev 
+# can find key names with xev 
 # @ - on KeyRelease
-# can make chains with ;
-# multiline commands with \
 
 # -----------------
 # |    General    |
 # -----------------
-
 # program launcher / browser
 super + {_, shift +} backslash
 	{rofi -show drun -display-run ' ' -display-drun ' ', firefox}
 
 # (scratchpad) terminal
 super + {_, shift +} Return
-	{urxvt, scratchpad-toggle.sh}
+	{urxvt -name '>_', scratchpad-toggle.sh}
 
 # (floating) file manager
 super + {_, shift +} semicolon
@@ -39,7 +36,7 @@ super + F4
 super + shift + f
 	bspc node $(bspc query -N -d focused | sed -n 1p) -g hidden
 
-# reload monit config
+# reload monitor config
 super + shift + F9
 	monitors.sh
 
@@ -58,11 +55,11 @@ super + shift + F12
 # --------------
 # |    XF86    |
 # --------------
-
 # screen brightness
 XF86MonBrightness{Down,Up}
 	xbacklight -{dec,inc} 5 -steps 1 && notify-send " Light" "Brightness: $(xbacklight | cut -c1-2)"
 
+# audio
 XF86Audio{Raise,Lower}Volume
 	sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+,-}2%"
 XF86AudioMute
@@ -77,15 +74,17 @@ XF86AudioPlay
 XF86Audio{Prev,Next}
 	mpc {prev,next}
 
+# bluetooth
+# it just works
+
 # ---------------
 # |    Bspwm    |
 # ---------------
-
 # focus/send to desktop
 super + {_, shift +} {1,2,3,4,5,6,7,8,9,0}
 	bspc {desktop -f, node -d} '{1-9,10}'
 
-# focus the next/previous desktop
+# focus the previous/next desktop
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
