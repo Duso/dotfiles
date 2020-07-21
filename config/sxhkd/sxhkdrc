@@ -20,6 +20,10 @@ super + {_, shift +} semicolon
 super + {_, shift} + slash
 	{lock.sh, oblogout}
 
+# music player
+super + apostrophe
+	bspc desktop -f 8; urxvt -name spt -e music.sh
+
 # take screenshot of selection
 super + Print
 	maim -s -b 2 -c 255,0,0 | tee ~/Pictures/screenshots/$(date +screenshot-%s).png | xclip -selection clipboard -t image/pn

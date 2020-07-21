@@ -8,6 +8,7 @@ win + (shift) + Return		(scratchpad) terminal
 win + (shift) + ;			(floating) file manager
 win + (shift) + / 			(power_menu) lock
 win + (shift) + ptrscr		screenshot (everything) selection
+win + '						music player
 win + space					change keyboard layout (in xorg.conf.d/0-moinitor...)
 win + f4					kill window with click
 win + shift + f				hide all windows (aka show desktop)
