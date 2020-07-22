@@ -72,11 +72,11 @@ XF86AudioMute
 XF86AudioMicMute
 	pactl set-source-mute 1 toggle
 
-# media TODO:
+# media
 XF86AudioPlay
-	mpc toggle
+	playerctl play-pause
 XF86Audio{Prev,Next}
-	mpc {prev,next}
+	playerctl {previous,next}
 
 # bluetooth
 # it just works

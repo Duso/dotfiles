@@ -22,8 +22,8 @@ win + shift + F12			quit bspwm
 --------------
 brightness {incr,decr}
 sound {incr,decr,mute, mute_mic}
-!! media {pause,next,prev}
-blouetooth
+media {pause,next,prev}
+bluetooth
 
 ---------------
 |    Bspwm    |
