@@ -41,7 +41,7 @@ nm-applet &
 xss-lock -- lock.sh &
 xsetroot -cursor_name left_ptr
 unclutter -idle 1 &
-xxkb &
+perWindowLayoutD
 
 # window manager
 exec bspwm
