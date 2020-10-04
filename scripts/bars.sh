@@ -16,11 +16,15 @@ elif [ $where == "home" ]
 then
 	polybar -r laptop & 
 	polybar -r home &
-elif [ $where == 'work' ]
+elif [ $where == "work" ]
 then
 	polybar -r laptop-alt &
 	polybar -r work2 &
 	polybar -r work1 &
+elif [ $where == "desktop" ]
+then
+	polybar -r desktop1 &
+	polybar -r desktop2 &
 fi
 echo "Bars launched!"
 
