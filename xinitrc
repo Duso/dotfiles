@@ -32,16 +32,18 @@ fi
 
 # autostart
 lxpolkit &
+autorandr -c
 sxhkd &
 picom -b --config $XDG_CONFIG_HOME/picom/picom.conf
 redshift &
 udiskie -qF &
 dunst &
-nm-applet &
+#nm-applet &
 xss-lock -- lock.sh &
 xsetroot -cursor_name left_ptr
 unclutter -idle 1 &
 perWindowLayoutD
+syncthing --no-browser &
 
 # window manager
 exec bspwm

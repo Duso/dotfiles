@@ -54,8 +54,8 @@ Xft.lcdfilter: lcddefault
 ! ------------------------
 ! |    Urxvt Settings    |
 ! ------------------------
-!URxvt*font:		xft:SourceCodePro:size=12
-URxvt*font:		xft:SauceCodeProNerdFont:size=12
+URxvt*font:			xft:SauceCodePro Nerd Font:size=12
+!URxvt*font:		xft:SourceCodePro:size=12, xft:SauceCodePro Nerd Font:size=12
 !URxvt*letterSpace:	-1
 URxvt*scrollBar:	false
 URxvt*internalBorder:	10
