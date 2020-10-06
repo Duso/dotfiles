@@ -14,7 +14,8 @@ super + {_, shift +} Return
 
 # (floating) file manager
 super + {_, shift +} semicolon
-	{urxvt -e ranger, urxvt -name ranger -e ranger} 
+	{pcmanfm, pcmanfm}
+#{urxvt -e ranger, urxvt -name ranger -e ranger} 
 
 # (power menu) lock
 super + {_, shift} + slash

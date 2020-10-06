@@ -1,0 +1,6 @@
+program_options:
+    tray:   auto
+
+device_config:
+    - id_type: ntfs
+      options: [uid=1000, gid=1000, dmask=022, fmask=133, windows_names]

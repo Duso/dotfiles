@@ -58,7 +58,7 @@ URxvt*font:			xft:SauceCodePro Nerd Font:size=12
 !URxvt*font:		xft:SourceCodePro:size=12, xft:SauceCodePro Nerd Font:size=12
 !URxvt*letterSpace:	-1
 URxvt*scrollBar:	false
-URxvt*internalBorder:	10
+URxvt*internalBorder:	6
 URxvt*urgentOnBell:	true
 !URxvt.title: >_
 URxvt.iso14755: false
