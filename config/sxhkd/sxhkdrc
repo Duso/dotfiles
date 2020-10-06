@@ -22,7 +22,8 @@ super + {_, shift} + slash
 
 # music player
 super + apostrophe
-	bspc desktop -f 8; urxvt -name spt -e music.sh
+#	bspc desktop -f 8; urxvt -name spt -e music.sh
+	bspc desktop -f 8 && pgrep -x spotify > /dev/null || spotify &
 
 # take screenshot of selection
 super + Print
@@ -65,7 +66,7 @@ XF86MonBrightness{Down,Up}
 
 # audio
 XF86Audio{Raise,Lower}Volume
-	sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+,-}2%"
+	sh -c "pactl set-sink-mute 5 false ; pactl set-sink-volume 5 {+,-}2%"
 XF86AudioMute
 #	pactl set-sink-mute 0 toggle
 	amixer set Master toggle
@@ -98,7 +99,7 @@ super + {grave,Tab}
 
 # focus the next/previous node in current desktop
 alt + {_,shift + } Tab 
-	bspc node -f {next,prev}.local
+	bspc node -f {next,prev}.local.!hidden.window
 
 # focus/move node in given direction
 super + {_,shift + }{h,j,k,l}
@@ -174,7 +175,7 @@ super + n
 
 # increment/decrement window gap
 super + shift + {minus,equal}
-	bspc config window_gap $(($(bspc config window_gap) {-,+} 5))
+	bspc config window_gap $(($(bspc config window_gap) {-,+} 2))
 
 # rotate tree clockwise/anticlockwise
 super + {_, shift +} e
