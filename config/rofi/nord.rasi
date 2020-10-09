@@ -60,13 +60,13 @@
 
 #mainbox {
     border:  2;
-    padding: 10;
+    padding: 6;
 }
 
 #message {
     border:       2px 2px 2px ;
     border-color: @separatorcolor;
-    padding:      10 ;
+    padding:      6 ;
 }
 
 #textbox {
