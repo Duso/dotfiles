@@ -34,6 +34,7 @@ alias du='du -ch'
 alias dmesg='dmesg -H'
 
 alias nv='nvim'
+alias nvc='rm .local/share/nvim/swap/*'
 alias diff='nvim -d'
 alias more='less'
 alias feh='feh --draw-filename --auto-rotate --scale-down --image-bg "#2E3440"'
