@@ -1,9 +1,8 @@
 #!/bin/sh
 
-# TODO: 3 monitir setup
+# TODO: 3 monitor setup
 
-# TODO: use autorandr output?
-if xrandr | grep "DisplayPort-1 connected"; then
+if autorandr | grep desktop; then
 	for i in 1 2 3 4 5
 	do
 		bspc desktop $i -m DisplayPort-1
@@ -17,7 +16,7 @@ if xrandr | grep "DisplayPort-1 connected"; then
 	bspc desktop 11 -r
 	bspc desktop Desktop -r
 	bars.sh desktop &
-elif xrandr | grep "HDMI2 disconnected"; then
+elif autorandr | grep laptop; then
 	bspc monitor HDMI2 -a 0
 	bspc desktop -f 0
 	for i in 1 2 3 4 5 6 7 8 9 10
@@ -41,7 +40,7 @@ else
 	bspc monitor eDP1 -o 6 7 8 9 10
 	bspc desktop 11 -r
 	bspc desktop Desktop -r
-	bars.sh home &
+	bars.sh wfh &
 fi
 
 # set wallpaper

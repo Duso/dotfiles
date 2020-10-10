@@ -25,4 +25,4 @@ export HISTCONTROL=ignoredups:ignorespace
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # start X
-[ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
+#[ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
