@@ -67,7 +67,7 @@ inherit = bar/default
 tray-position = none
 
 [bar/desktop1]
-monitor = DisplayPort-1
+monitor = DisplayPort-0
 inherit = bar/default
 modules-right = l1 volume l1 keyboard l1 network l2
 tray-position = right
@@ -75,7 +75,7 @@ tray-position = right
 [bar/desktop2]
 monitor = HDMI-A-0
 inherit = bar/default
-width = 1072
+#width = 1072
 modules-right = l1 volume l1 keyboard l1 network l2
 tray-position = none
 

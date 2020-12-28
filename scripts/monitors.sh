@@ -5,13 +5,13 @@
 if autorandr | grep desktop; then
 	for i in 1 2 3 4 5
 	do
-		bspc desktop $i -m DisplayPort-1
+		bspc desktop $i -m DisplayPort-0
 	done
 	for i in 6 7 8 9 10
 	do
 		bspc desktop $i -m HDMI-A-0
 	done
-	bspc monitor DisplayPort-1 -o 1 2 3 4 5
+	bspc monitor DisplayPort-0 -o 1 2 3 4 5
 	bspc monitor HDMI-A-0 -o 6 7 8 9 10
 	bspc desktop 11 -r
 	bspc desktop Desktop -r
