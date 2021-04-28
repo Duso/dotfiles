@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'itchyny/vim-gitbranch'
 Plug 'kovetskiy/sxhkd-vim'
 "TODO vim-startify vim-go deliminate deoplete nerdcomenter nerdtree vim-gugitive lightline-bufferline?
 
@@ -13,8 +14,7 @@ call plug#end()
 " ----------------
 " |    Colors    |
 " ----------------
-
-"set termguicolors 
+set termguicolors
 let g:nord_italic = 1
 let g:nord_cursor_line_number_background = 1
 let g:nord_bold_vertical_split_line = 1
@@ -61,7 +61,7 @@ let g:lightline = {
 	\	'empty': ' '
 	\},
 	\ 'component_function': {
-	\   'gitbranch': 'fugitive#head'
+	\   'gitbranch': 'gitbranch#name'
 	\ },
 	\ 'separator': {
 	\   'left': '', 

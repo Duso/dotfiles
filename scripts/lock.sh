@@ -39,8 +39,8 @@ i3lock \
     --wrongtext=""		\
     \
 	--centered \
-	--color=2E3440; \
+    --image=/home/duso/Pictures/wallpapers/lotr1.png; \
 	notify-send "DUNST_COMMAND_RESUME" && playerctl play
 
 
-    #--image=/home/duso/Pictures/wallpapers/lotr1.png; \
+	#--color=2E3440; \
