@@ -15,7 +15,7 @@ source /usr/share/doc/pkgfile/command-not-found.bash
 alias su='su -l'
 alias sudo='sudo '
 alias sudoe='sudo -e'
-alias cp='cp -v'
+alias cp='cp -vi'
 alias mv='mv -vi'
 alias rm='rm -vI'
 alias mkdir='mkdir -pv'
