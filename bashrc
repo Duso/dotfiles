@@ -38,6 +38,7 @@ alias nvc='rm .local/share/nvim/swap/*'
 alias diff='nvim -d'
 alias more='less'
 alias feh='feh --draw-filename --auto-rotate --scale-down --image-bg "#2E3440"'
+alias sct='syncthing --browser-only'
 
 # color man pages
 export LESS=-R
@@ -53,7 +54,4 @@ export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 # shell prompt
-if [[ ! -f $THEME ]]; then
-	PS1='[\u@\h \W]\$ '
-fi
-
+# check /etc/bash.bashrc

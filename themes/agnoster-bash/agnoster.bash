@@ -271,8 +271,9 @@ prompt_dir() {
 prompt_status() {
     local symbols
     symbols=()
+    [[ $UID -eq 0 ]] && symbols+="$(ansi_single $(fg_color yellow))●"
+    #[[ $UID -eq 0 ]] && symbols+="$(ansi_single $(fg_color yellow))⚡"
     [[ $RETVAL -ne 0 ]] && symbols+="$(ansi_single $(fg_color red))●"
-    [[ $UID -eq 0 ]] && symbols+="$(ansi_single $(fg_color yellow))⚡"
     [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="$(ansi_single $(fg_color cyan))●"
 
     [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
