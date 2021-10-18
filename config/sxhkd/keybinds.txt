@@ -7,7 +7,7 @@ win + (shift) + \			(browser) program launcher
 win + (shift) + Return		(scratchpad) terminal
 win + (shift) + ;			(floating) file manager
 win + (shift) + / 			(power_menu) lock
-win + (shift) + ptrscr		screenshot (everything) selection
+win + ptrscr				screenshot
 win + '						music player
 win + space					change keyboard layout (in xorg.conf.d/0-moinitor...)
 win + f4					kill window with click

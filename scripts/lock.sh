@@ -1,46 +1,100 @@
-#!/bin/sh
+#!/bin/bash
 
-notify-send "DUNST_COMMAND_PAUSE"
-playerctl pause
+# Lockscreen Config
+LOCK_ARGS="\
+	--bar-indicator \
+	--bar-pos=1070 \
+	--bar-base-width=10 \
+	--bar-orientation=horizontal \
+	--bar-color=2e3440 \
+	--ringver-color=a3be8c \
+	--ringwrong-color=bf616a \
+    --keyhl-color=5e81ac \
+    --bshl-color=d08770 \
+	\
+	--clock \
+	--time-str=%H:%M \
+	--time-size=70 \
+    --time-pos=x+100:y+1025 \
+	--time-color=e5e9f0 \
+    --date-str=%d.%B.%y \
+    --date-size=20 \
+    --date-color=e5e9f0 \
+    \
+    --verif-color=eceff4 \
+    --verif-size=40 \
+    --wrong-text=LOLBURKEK \
+    --wrong-color=bf616a \
+    --wrong-size=50 \
+    \
+    --keylayout=1 \
+    --layout-color=e5e9f0 \
+    --layout-size=20 \
+    --layout-pos=x+1860:y+1055 \
+    "
 
-i3lock \
-	--nofork                 \
-    --ignore-empty-password	\
-	--show-failed-attempts	\
-    --linecolor=00000000        \
-    --keyhlcolor=88c0d0ff       \
-    --bshlcolor=d8dee9ff	\
-    --separatorcolor=00000000   \
-    --radius=70			\
-    --indpos="1800:1600"		\
-    \
-    --insidevercolor=00000000	\
-    --insidewrongcolor=00000000 \
-    --insidecolor=00000000	\
-    \
-    --ringcolor=5e81acff        \
-    --ringvercolor=a3be8cff     \
-    --ringwrongcolor=bf616aff   \
-    \
-    --clock			\
-    --timecolor=eceff4ff	\
-    --timestr="%H:%M"		\
-    --time-font='SauceCodePro Nerd Font'	\
-    --timesize=75		\
-    --timepos="150:1595"		\
-    \
-    --datecolor=d8dee9ff	\
-    --datestr="%A, %d %B"	\
-    --date-font="SauceCodePro Nerd Font"	\
-    --datesize=50		\
-    --datepos="340:1660"	\
-    \
-    --veriftext=""		\
-    --wrongtext=""		\
-    \
-	--centered \
-    --image=/home/duso/Pictures/wallpapers/lotr1.png; \
-	notify-send "DUNST_COMMAND_RESUME" && playerctl play
+#Constants
+DISPLAY_RE="([0-9]+)x([0-9]+)\\+([0-9]+)\\+([0-9]+)" # Regex to find display dimensions
+FOLDER=`dirname "$BASH_SOURCE"` # Current folder
+CACHE_FOLDER="$FOLDER"/.cache/ # Cache folder
+if ! [ -e $CACHE_FOLDER ]; then
+    mkdir $CACHE_FOLDER
+fi
 
+BKG_IMG="/home/duso/Pictures/Wallpapers/rivendell.jpg"
+if ! [ -e "$BKG_IMG" ]; then
+    echo "No background image! Exiting..."
+    exit 2
+fi
 
-	#--color=2E3440; \
+MD5_BKG_IMG=$(md5sum $BKG_IMG | cut -c 1-10)
+MD5_SCREEN_CONFIG=$(xrandr | md5sum - | cut -c 1-32) # Hash of xrandr output
+OUTPUT_IMG="$CACHE_FOLDER""$MD5_SCREEN_CONFIG"."$MD5_BKG_IMG".png # Path of final image
+OUTPUT_IMG_WIDTH=0 # Decide size to cover all screens
+OUTPUT_IMG_HEIGHT=0 # Decide size to cover all screens
+
+#i3lock command
+LOCK_BASE_CMD="i3lock -n -e -i $OUTPUT_IMG"
+
+LOCK_CMD="$LOCK_BASE_CMD $LOCK_ARGS"
+
+if [ -e $OUTPUT_IMG ]
+then
+    # Lock screen since image already exists
+    $LOCK_CMD
+    exit 0
+fi
+
+#Execute xrandr to get information about the monitors:
+while read LINE
+do
+  #If we are reading the line that contains the position information:
+  if [[ $LINE =~ $DISPLAY_RE ]]; then
+    #Extract information and append some parameters to the ones that will be given to ImageMagick:
+    SCREEN_WIDTH=${BASH_REMATCH[1]}
+    SCREEN_HEIGHT=${BASH_REMATCH[2]}
+    SCREEN_X=${BASH_REMATCH[3]}
+    SCREEN_Y=${BASH_REMATCH[4]}
+    
+    CACHE_IMG="$CACHE_FOLDER""$SCREEN_WIDTH"x"$SCREEN_HEIGHT"."$MD5_BKG_IMG".png
+    ## if cache for that screensize doesnt exist
+    if ! [ -e $CACHE_IMG ]
+    then
+    # Create image for that screensize
+        eval convert '$BKG_IMG' '-resize' '${SCREEN_WIDTH}X${SCREEN_HEIGHT}^' '-gravity' 'Center' '-crop' '${SCREEN_WIDTH}X${SCREEN_HEIGHT}+0+0' '+repage' '$CACHE_IMG'
+    fi
+
+    # Decide size of output image
+    if (( $OUTPUT_IMG_WIDTH < $SCREEN_WIDTH+$SCREEN_X )); then OUTPUT_IMG_WIDTH=$(($SCREEN_WIDTH+$SCREEN_X)); fi;
+    if (( $OUTPUT_IMG_HEIGHT < $SCREEN_HEIGHT+$SCREEN_Y )); then OUTPUT_IMG_HEIGHT=$(( $SCREEN_HEIGHT+$SCREEN_Y )); fi;
+
+    PARAMS="$PARAMS $CACHE_IMG -geometry +$SCREEN_X+$SCREEN_Y -set colorspace RGB -composite "
+  fi
+done <<<"`xrandr`"
+
+#Execute ImageMagick:
+eval convert -size ${OUTPUT_IMG_WIDTH}x${OUTPUT_IMG_HEIGHT} 'xc:black' $OUTPUT_IMG
+eval convert $OUTPUT_IMG $PARAMS $OUTPUT_IMG
+
+#Lock the screen:
+$LOCK_CMD

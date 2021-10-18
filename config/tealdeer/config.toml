@@ -1,0 +1,32 @@
+[style.description]
+foreground = "green"
+underline = false
+bold = false
+
+[style.command_name]
+foreground = "cyan"
+underline = false
+bold = true
+
+[style.example_text]
+foreground = "yellow"
+underline = false
+bold = false
+
+[style.example_code]
+foreground = "blue"
+underline = false
+bold = false
+
+[style.example_variable]
+foreground = "purple"
+underline = false
+bold = false
+
+[display]
+compact = true
+use_pager = false
+
+[updates]
+auto_update = true
+auto_update_interval_hours = 72

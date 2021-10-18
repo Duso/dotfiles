@@ -7,7 +7,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'kovetskiy/sxhkd-vim'
-"TODO vim-startify vim-go deliminate deoplete nerdcomenter nerdtree vim-gugitive lightline-bufferline?
+Plug 'mhinz/vim-startify'
+"TODO vim-go deliminate deoplete nerdcomenter nerdtree vim-gugitive lightline-bufferline
 
 call plug#end()
 
@@ -16,6 +17,8 @@ call plug#end()
 " ----------------
 set termguicolors
 let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
 let g:nord_cursor_line_number_background = 1
 let g:nord_bold_vertical_split_line = 1
 let g:nord_uniform_diff_background = 1

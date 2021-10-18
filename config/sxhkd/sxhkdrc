@@ -28,11 +28,7 @@ super + apostrophe
 
 # take screenshot of selection
 super + Print
-	maim -s -b 2 -c 255,0,0 | tee ~/Pictures/screenshots/$(date +screenshot-%s).png | xclip -selection clipboard -t image/pn; notify-send -t 1500 "Selection captured" "Saved to screenshots"
-
-# take sceenshot of entire screen
-super + shift + Print
-	maim | tee ~/Pictures/screenshots/$(date +screenshot-%s).png | xclip -selection clipboard -t image/pn; notify-send -t 1500 "Screen captured" "Saved to screenshots"
+	screenshot.sh
 
 # kill window with click
 super + F4
