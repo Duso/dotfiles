@@ -12,6 +12,12 @@ bspc config initial_polarity		second_child
 bspc config window_gap				3
 bspc config border_width			2
 
+# monocle settings
+bspc config single_monocle			true
+bspc config borderless_monocle		false
+bspc config gapless_monocle			true
+bspc config bottom_monocle_padding	3
+
 # colors
 bspc config normal_border_color		"#4c566a"
 bspc config active_border_color		"#4c566a"
