@@ -30,11 +30,12 @@ margin-bottom = 0
 # |    Bar Template    |
 # ----------------------
 [bar/default]
+bottom = true
 override-redirect = true
 wm-restack = bspwm
-offset-x = 4
-offset-y = 4
-width = 1912
+offset-x = 0
+offset-y = 0
+width = 1920
 height = 18
 border-size = 2
 background = ${colors.nord3}

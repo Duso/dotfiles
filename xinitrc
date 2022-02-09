@@ -30,20 +30,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# autostart
-lxpolkit &
-autorandr -c
-sxhkd &
-picom -b --config $XDG_CONFIG_HOME/picom/picom.conf
-redshift &
-udiskie -qF &
-dunst &
-#nm-applet &
-xss-lock -- lock.sh &
-xsetroot -cursor_name left_ptr
-unclutter -idle 1 &
-perWindowLayoutD
-syncthing --no-browser &
+# autostart from .xprofile
+[[ -f ~/.xprofile ]] && . ~/.xprofile
 
 # window manager
 exec bspwm

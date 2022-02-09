@@ -14,16 +14,18 @@ super + {_, shift +} Return
 
 # (floating) file manager
 super + {_, shift +} semicolon
-	{pcmanfm, pcmanfm}
-#{urxvt -e ranger, urxvt -name ranger -e ranger} 
+	{thunar, thunar}
 
 # (power menu) lock
 super + {_, shift} + slash
 	{lock.sh, oblogout}
 
+# taks manager
+super + shift + Escape
+	xfce4-taskmanager
+
 # music player
 super + apostrophe
-#	bspc desktop -f 8; urxvt -name spt -e music.sh
 	bspc desktop -f 8 && pgrep -x spotify > /dev/null || spotify &
 
 # take screenshot of selection
@@ -130,9 +132,9 @@ super + equal
 super + minus
 	bspc node -g hidden=on
 
-# send newest marked node to newest preselected node
+# send node to newest preselected node
 super + i
-	bspc node newest.marked -n newest.!automatic --follow
+	bspc node -n newest.!automatic --follow
 
 # (force) close node
 super + {_, shift + } w
@@ -168,11 +170,11 @@ super + m
 
 # alternate between bar/nobar in current desktop
 super + n
-	bspc config -d focused top_padding -$(($(bspc config top_padding) + $(bspc config -d focused top_padding)))
+	bspc config -d focused bottom_padding -$(($(bspc config bottom_padding) + $(bspc config -d focused bottom_padding)))
 
 # increment/decrement window gap
 super + shift + {minus,equal}
-	bspc config window_gap $(($(bspc config window_gap) {-,+} 2))
+	bspc config window_gap $(($(bspc config window_gap) {-,+} 1))
 
 # rotate tree clockwise/anticlockwise
 super + {_, shift +} e

@@ -12,6 +12,7 @@ win + '						music player
 win + space					change keyboard layout (in xorg.conf.d/0-moinitor...)
 win + f4					kill window with click
 win + shift + f				hide all windows (aka show desktop)
+win + shift + ESC			task manager
 win + shift + F9			reload monitor config
 win + shift + F10			reload sxhkd config
 win + shift + F11			reload bspwm config  
@@ -41,7 +42,7 @@ win + {z,x,c,v}				set node flag (locked,marked,sticky,private)
 win + u						focus newest urgent node
 win + =						swap current node and biggest local node
 win + -						hide node
-win + i						send newest marked node to newest preselected node
+win + i						send node to newest preselected node
 win + (shift) + w			(force) close node
 
 win + ctrl + {h,j,k,l} 		preselect in given (spatial) direction
