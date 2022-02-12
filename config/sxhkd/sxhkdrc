@@ -6,7 +6,7 @@
 # -----------------
 # program launcher / browser
 super + {_, shift +} backslash
-	{rofi -show combi &, firefox}
+	{$HOME/.config/rofi/bin/launcher, firefox}
 
 # (scratchpad) terminal
 super + {_, shift +} Return
@@ -18,7 +18,7 @@ super + {_, shift +} semicolon
 
 # (power menu) lock
 super + {_, shift} + slash
-	{lock.sh, oblogout}
+	{lock.sh, $HOME/.config/rofi/bin/powermenu}
 
 # taks manager
 super + shift + Escape

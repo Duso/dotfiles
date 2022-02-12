@@ -1,17 +1,6 @@
-configuration {
-	combi-modi:			"drun,run";
-	modi:				"combi";
-	display-combi:		" ";
-	display-run:		"";
-	display-drun:		"";
-	run-shell-command:	"urxvt -name rofi -e bash -c '{cmd}; read -n 1 -s'";
-	width:				450;
-	lines:				8;
-	show-match:			false;
-	hide-scrollbar:		true;
-	icon-theme:			"Papirus-Dark";
-	show-icons:			true;
-	font:				"SourceCodeProSemibold 12";
-	theme:				"~/.config/rofi/nord.rasi";
-}
+/** Basic config file **/
 
+configuration {
+  show-icons:         true;
+  icon-theme:         "Papirus-Dark";
+}

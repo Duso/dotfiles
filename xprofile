@@ -4,7 +4,7 @@ lxpolkit &
 autorandr -c
 sxhkd &
 picom -b --config $XDG_CONFIG_HOME/picom/picom.conf
-redshift -l $(cat .config/gde.sum) &
+redshift-gtk -l $(cat .config/gde.sum) &
 udiskie -qF &
 dunst &
 xss-lock -- lock.sh &
