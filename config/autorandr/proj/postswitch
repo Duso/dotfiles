@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# add desktops desktops
+bspc monitor HDMI-A-0 -d 11 12
+
+# start polybar
+bars.sh proj &
+
+# set wallapaper
+feh --bg-scale --no-fehbg ~/Pictures/Wallpapers/wallpaper.png
+
+# send notification
+notify-send -i display "Display profile proj"
+

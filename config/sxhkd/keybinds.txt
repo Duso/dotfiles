@@ -9,6 +9,7 @@ win + (shift) + ;			(floating) file manager
 win + (shift) + / 			(power_menu) lock
 win + ptrscr				screenshot
 win + '						music player
+win + shift + '				reset scratchpad
 win + space					change keyboard layout (in xorg.conf.d/0-moinitor...)
 win + f4					kill window with click
 win + shift + f				hide all windows (aka show desktop)
@@ -29,8 +30,8 @@ bluetooth
 ---------------
 |    Bspwm    |
 ---------------
-win + (1-0) 				focus desktop
-win + shift + (1-0)			send node to desktop
+win + (1-0,-,=) 			focus desktop
+win + shift + (1-0,-,=)			send node to desktop
 win + {[,]}					focus prev/next desktop
 win + {Tab,~}				focus last node/desktop
 alt + (shift) + Tab			focus next/prev node in current desktop
@@ -40,9 +41,9 @@ win + {p,o,<,>}				focus parent, brother, 1st child, 2nd child
 win + (shift) + {a,s,d,f}	(desktop) window state (tiled,floating,pseudo,fullscr*)
 win + {z,x,c,v}				set node flag (locked,marked,sticky,private)
 win + u						focus newest urgent node
-win + =						swap current node and biggest local node
-win + -						hide node
-win + i						send node to newest preselected node
+win + b						swap current node and biggest local node
+win + i						hide node
+win + t						send node to newest preselected node
 win + (shift) + w			(force) close node
 
 win + ctrl + {h,j,k,l} 		preselect in given (spatial) direction
@@ -55,7 +56,8 @@ win + shift + {u,i,o,p}		move floating window
 
 win + m						tiled <-> monocle layout
 win + n						windows over bar
-win + shift + {=,-}			increment,decrement window gaps
+win + y						increment window gaps
+win + shift + y				decrement window gaps
 
 win + e						rotate tree clockwise
 win + shift + e				rotate tree anticlockwise
@@ -67,6 +69,4 @@ win + shift + r				resize nodes at tree to have equal area
 -------------------
 |    Free Keys    |
 -------------------
-t,y,b
-'
-
+some keys not using shift

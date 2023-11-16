@@ -63,8 +63,12 @@ URxvt*urgentOnBell:	true
 !URxvt.title: >_
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+
+URxvt.colorIT: nord14
+URxvt.colorBD: nord9
+URxvt.colorUL: nord15
  
-! extension: clickable urls
+! extensions
 URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1

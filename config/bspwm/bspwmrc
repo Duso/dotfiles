@@ -1,9 +1,8 @@
 #! /bin/sh
 
 # setup monitors
-bspc monitor DisplayPort-1 -d 1 2 3 4 5
-bspc monitor HDMI-A-0 -d 6 7 8 9 10
-monitors.sh
+init-monitors.sh
+autorandr -c --force
 
 # general settings
 bspc config split_ratio				0.50
@@ -44,5 +43,5 @@ bspc rule -a Lxappearance state=floating
 bspc rule -a Xfce4-taskmanager state=floating
 bspc rule -a Xfce4-power-manager-settings state=floating
 bspc rule -a Spotify desktop='8'
-bspc rule -a Signal desktop='8'
+bspc rule -a Signal desktop='8' state=pseudo_tiled
 bspc rule -a firefox -o desktop='2'

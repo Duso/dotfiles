@@ -40,16 +40,6 @@ alias more='less'
 alias feh='feh --draw-filename --auto-rotate --scale-down --image-bg "#2E3440"'
 alias sct='syncthing --browser-only'
 
-# color man pages
-export LESS=-R
-export LESS_TERMCAP_mb=$'\E[1;34m'     # begin bold
-export LESS_TERMCAP_md=$'\E[1;34m'     # begin blink
-export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-export LESS_TERMCAP_so=$'\E[01;90;46m' # begin reverse video
-export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
-export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-
 # dircolors
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 

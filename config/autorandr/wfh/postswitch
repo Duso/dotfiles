@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# reorder desktops
+bspc monitor DisplayPort-0 -a mover1
+bspc monitor DisplayPort-1 -a mover2
+bspc desktop -f mover1
+bspc desktop -f mover2
+for i in 1 2 3 4 5 6 7 8 9 10
+do
+	bspc desktop $i -m DisplayPort-1
+done
+bspc monitor HDMI-A-0 -o 1 2 3 4 5 6 7 8 9 10 mover2
+bspc desktop mover1 -r
+bspc desktop mover2 -r
+bspc desktop Desktop -r
+
+# start polybar
+bars.sh wfh &
+
+# set wallapaper
+feh --bg-scale --no-fehbg ~/Pictures/Wallpapers/wallpaper.png
+
+# send notification
+notify-send -i display "Display profile wfh"
+

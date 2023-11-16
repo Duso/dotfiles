@@ -1,7 +1,6 @@
 #!/bin/sh
 
 lxpolkit &
-autorandr -c
 sxhkd &
 picom -b --config $XDG_CONFIG_HOME/picom/picom.conf
 redshift-gtk -l $(cat .config/gde.sum) &
@@ -11,5 +10,5 @@ xss-lock -- lock.sh &
 xsetroot -cursor_name left_ptr
 unclutter -idle 1 &
 perWindowLayoutD
-syncthing serve &
-xfce4-power-manager &
+#syncthing serve &
+#xfce4-power-manager &
