@@ -10,5 +10,6 @@ xss-lock -- lock.sh &
 xsetroot -cursor_name left_ptr
 unclutter -idle 1 &
 perWindowLayoutD
+pasystray -N all &
 #syncthing serve &
 #xfce4-power-manager &
